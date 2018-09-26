@@ -9,7 +9,7 @@ public class Article {
     private String mArticleDate;
 
     // article author
-    private String mArticleAuthor;
+    private String mArticleSection;
 
 
     /**
@@ -17,12 +17,12 @@ public class Article {
      *
      * @param articleTitle is the article title
      * @param articleDate is the date of publication
-     * @param articleAuthor is the author
+     * @param articleSection is the section
      */
-    public Article (String articleTitle, String articleDate, String articleAuthor) {
+    public Article (String articleTitle, String articleDate, String articleSection) {
         mArticleTitle = articleTitle;
         mArticleDate = articleDate;
-        mArticleAuthor = articleAuthor;
+        mArticleSection = articleSection;
     }
 
     // get the article title
@@ -36,8 +36,8 @@ public class Article {
     }
 
     // get the author of the article
-    public String getArticleAuthor() {
-        return mArticleAuthor;
+    public String getArticleSection() {
+        return mArticleSection;
     }
 
 }

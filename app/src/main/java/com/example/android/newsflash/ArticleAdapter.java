@@ -28,8 +28,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         TextView articleTitleTextView = (TextView) listItemView.findViewById(R.id.title_text_view);
         articleTitleTextView.setText(currentArticle.getArticleTitle());
 
-        TextView articleAuthorTextView = (TextView) listItemView.findViewById(R.id.author_text_view);
-        articleAuthorTextView.setText(currentArticle.getArticleAuthor());
+        TextView articleSectionTextView = (TextView) listItemView.findViewById(R.id.section_text_view);
+        articleSectionTextView.setText(currentArticle.getArticleSection());
 
         TextView articleDateTextView = (TextView) listItemView.findViewById(R.id.date_text_view);
         articleDateTextView.setText(currentArticle.getArticleDate());

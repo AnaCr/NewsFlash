@@ -14,13 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.browse_item_list);
 
         // placeholder data for articles
-        ArrayList<Article> Articles= new ArrayList<>();
-        Articles.add(new Article("Article 1", "9/20/2018", "Author Name"));
-        Articles.add(new Article("Article 2", "9/20/2018", "Author Name"));
-        Articles.add(new Article("Article 3", "9/20/2018", "Author Name"));
-        Articles.add(new Article("Article 4", "9/20/2018", "Author Name"));
-        Articles.add(new Article("Article 5", "9/20/2018", "Author Name"));
-        Articles.add(new Article("Article 6", "9/20/2018", "Author Name"));
+        ArrayList<Article> Articles= QueryUtils.extractArticles();
 
         // placeholder data for news articles
         /*ArrayList<String> newsArticles = new ArrayList<>();

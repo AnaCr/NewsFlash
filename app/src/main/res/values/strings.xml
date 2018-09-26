@@ -2,4 +2,9 @@
 
 <resources>
     <string name="app_name">News Flash</string>
+
+    <!-- Placeholder text -->
+    <string name="title">Title</string>
+    <string name="section">Section</string>
+    <string name="date">date</string>
 </resources>
