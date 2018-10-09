@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/section"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/title_text_view"

@@ -38,7 +38,13 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         articleDateTextView.setText(currentArticle.getArticleDate());
 
         TextView articleAuthorTextView = (TextView) listItemView.findViewById(R.id.author_text_view);
-        articleAuthorTextView.setText(currentArticle.getArticleAuthor());
+
+        if(currentArticle.getArticleAuthor().isEmpty()){
+            articleAuthorTextView.setVisibility(GONE);
+            listItemView.findViewById(R.id.bullet_view).setVisibility(GONE);
+        }else{
+            articleAuthorTextView.setText(currentArticle.getArticleAuthor());
+        }
 
 
         // Get the appropriate color based on the article section
@@ -56,11 +62,17 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             case "Environment":
                 sectionColorResId = R.color.Environment;
                 break;
-            case "Business":
-                sectionColorResId = R.color.Business;
+            case "Politics":
+                sectionColorResId = R.color.Politics;
                 break;
             case "Opinion":
                 sectionColorResId = R.color.Opinion;
+                break;
+            case "Society":
+                sectionColorResId = R.color.Society;
+                break;
+            case "Art and design":
+                sectionColorResId = R.color.artAndDesign;
                 break;
             default:
                 sectionColorResId = R.color.colorPrimary;
