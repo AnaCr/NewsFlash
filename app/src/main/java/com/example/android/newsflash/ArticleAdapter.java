@@ -1,6 +1,7 @@
 package com.example.android.newsflash;
 
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.view.View.GONE;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
 
@@ -34,6 +37,35 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         TextView articleDateTextView = (TextView) listItemView.findViewById(R.id.date_text_view);
         articleDateTextView.setText(currentArticle.getArticleDate());
 
+        TextView articleAuthorTextView = (TextView) listItemView.findViewById(R.id.author_text_view);
+        articleAuthorTextView.setText(currentArticle.getArticleAuthor());
+
+
+        // Get the appropriate color based on the article section
+        int sectionColor = getSectionColor(currentArticle.getArticleSection());
+
+        // Set the text color
+        articleSectionTextView.setTextColor(sectionColor);
+
         return listItemView;
+    }
+
+    private int getSectionColor(String section) {
+        int sectionColorResId;
+        switch (section) {
+            case "Environment":
+                sectionColorResId = R.color.Environment;
+                break;
+            case "Business":
+                sectionColorResId = R.color.Business;
+                break;
+            case "Opinion":
+                sectionColorResId = R.color.Opinion;
+                break;
+            default:
+                sectionColorResId = R.color.colorPrimary;
+                break;
+        }
+        return ContextCompat.getColor(getContext(), sectionColorResId);
     }
 }

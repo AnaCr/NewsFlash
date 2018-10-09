@@ -2,7 +2,13 @@
 
 <resources>
     <color name="colorPrimary">#212121</color>
-    <color name="colorPrimaryLight">#757575</color>
+    <color name="colorPrimaryLight">#bdbdbd</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#d50000</color>
+    <color name="white">#ffffff</color>
+
+    <!-- Category Colors -->
+    <color name="Environment">#388e3c</color>
+    <color name="Business">#0277bd</color>
+    <color name="Opinion">#ff6d00</color>
 </resources>
