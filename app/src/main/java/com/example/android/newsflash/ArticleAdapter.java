@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import static android.view.View.GONE;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
@@ -26,8 +24,10 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
                     R.layout.list_article, parent, false);
         }
 
+        // get the current article
         Article currentArticle = getItem(position);
 
+        // set the article's title, section, date, and author
         TextView articleTitleTextView = (TextView) listItemView.findViewById(R.id.title_text_view);
         articleTitleTextView.setText(currentArticle.getArticleTitle());
 
@@ -39,13 +39,14 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         TextView articleAuthorTextView = (TextView) listItemView.findViewById(R.id.author_text_view);
 
+        // handle articles that do not have an author
+        // hide the author and bullet view
         if(currentArticle.getArticleAuthor().isEmpty()){
             articleAuthorTextView.setVisibility(GONE);
             listItemView.findViewById(R.id.bullet_view).setVisibility(GONE);
         }else{
             articleAuthorTextView.setText(currentArticle.getArticleAuthor());
         }
-
 
         // Get the appropriate color based on the article section
         int sectionColor = getSectionColor(currentArticle.getArticleSection());

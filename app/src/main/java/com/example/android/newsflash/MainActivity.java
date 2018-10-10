@@ -29,15 +29,19 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    /** URL to query the Guardian for articles */
+    // tag for log messages
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+
+    // URL to query the Guardian for articles
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=environment&from-date=2014-01-01&api-key=00eb36ac-685a-4a5e-9bde-56bd6807f09b&show-tags=contributor";
+            "https://content.guardianapis.com/search?q=environment&from-date=2014-01-01&show-tags=contributor&api-key=" + BuildConfig.GuardianAPIKEY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browse_item_list);
 
-        // placeholder data for articles
+        // getArticlesArray makes an HTTP request and returns an ArrayList of Articles
+        // then updates the UI to display article list
         new getArticlesArray().execute();
     }
 
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
 
+        // start a browser intent to the article's web url when clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -67,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Make an HTTP request using GUARDIAN_REQUEST_URL
+     * Parse JSON and extract articles
+     * */
     private class getArticlesArray extends AsyncTask<URL, Void, ArrayList>{
         @Override
         protected ArrayList<Article> doInBackground(URL... urls){
@@ -82,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /**
-         * Update the screen with the given earthquake (which was the result of the
+         * Update the UI with the article list (which was the result of the
          * {@link getArticlesArray}).
          */
         @Override
@@ -96,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * create a URL from String
+     * @param stringUrl
+     * @return URL
+     */
     private URL createUrl(String stringUrl) {
         URL url = null;
         try {
@@ -106,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
         return url;
     }
 
+    /**
+     * set up an HTTP connection to read the JSON response
+     * @param url
+     * @return jsonResponse String
+     * @throws IOException
+     */
     private String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
         HttpURLConnection urlConnection = null;
@@ -119,13 +139,12 @@ public class MainActivity extends AppCompatActivity {
             inputStream = urlConnection.getInputStream();
             jsonResponse = readFromStream(inputStream);
         } catch (IOException e) {
-            // TODO: Handle the exception
+            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
             }
             if (inputStream != null) {
-                // function must handle java.io.IOException here
                 inputStream.close();
             }
         }
@@ -155,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         // Create an empty ArrayList that we can start adding articles to
         ArrayList<Article> Articles = new ArrayList<>();
 
-        // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
+        // Try to parse the JSON response. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
@@ -165,8 +184,8 @@ public class MainActivity extends AppCompatActivity {
             JSONObject response = baseResponse.getJSONObject("response");
             // extract results array
             JSONArray resultsArray = response.getJSONArray("results");
-            Log.i("results Array length", Integer.toString(resultsArray.length())); //10
 
+            // extract each article along with the title, date, section, web url, and author if any
                 for (int i = 0; i < resultsArray.length(); i++){
                     // get the article
                     JSONObject article = resultsArray.getJSONObject(i);
@@ -187,18 +206,16 @@ public class MainActivity extends AppCompatActivity {
                     // get the tags array, where you will find author
                     JSONArray tags = article.getJSONArray("tags");
 
+                    // if the tags array is not empty, get the author name
                     if(tags.length() > 0){
                         JSONObject author = tags.getJSONObject(0);
                         authorName = author.getString("webTitle");
                     }
 
-                    //return new Article(title, dtOut, section, url);
-
-                    // create and add an Article Object using title, date, section
+                    // create and add an Article Object using title, date, section, url, and author
                     Articles.add(new Article(title, dtOut, section, url, authorName));
                 }
 
-                Log.i("Articles Array length", Integer.toString(Articles.size()));
                 return Articles;
 
         } catch (JSONException e) {
@@ -210,8 +227,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // Return the list of articles
-        // return Articles;
         return null;
     }
 }

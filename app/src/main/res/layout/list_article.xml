@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/section_text_view"
-        style="@style/SmallStyle"
+        android:textSize="@dimen/textsize_small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/section"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/author_text_view"
-            style="@style/SmallStyle"
+            android:textSize="@dimen/textsize_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/author"/>
@@ -46,7 +46,7 @@
 
         <TextView
             android:id="@+id/date_text_view"
-            style="@style/SmallStyle"
+            android:textSize="@dimen/textsize_small"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
