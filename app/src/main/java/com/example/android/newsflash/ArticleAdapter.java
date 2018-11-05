@@ -75,6 +75,9 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             case "Art and design":
                 sectionColorResId = R.color.artAndDesign;
                 break;
+            case "Business":
+                sectionColorResId = R.color.Business;
+                break;
             default:
                 sectionColorResId = R.color.colorPrimary;
                 break;

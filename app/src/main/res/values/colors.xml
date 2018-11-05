@@ -12,5 +12,6 @@
     <color name="Politics">#0277bd</color>
     <color name="Opinion">#ff6d00</color>
     <color name="Society">#7b1fa2</color>
-    <color name="artAndDesign">#ec407a</color>
+    <color name="artAndDesign">#c9bc1f</color>
+    <color name="Business">#b71c1c</color>
 </resources>
