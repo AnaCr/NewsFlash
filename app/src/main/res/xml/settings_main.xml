@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_title">
+
+    <PreferenceCategory
+        android:title="@string/settings_interests_label">
+
+        <CheckBoxPreference
+            android:key="@string/settings_all_key"
+            android:title="@string/settings_all_label"
+            android:defaultValue="@string/settings_all_default"/>
+
+        <CheckBoxPreference
+            android:key="@string/settings_environment_key"
+            android:title="@string/settings_environment_label"
+            android:defaultValue="@string/settings_environment_default"/>
+
+        <CheckBoxPreference
+            android:key="@string/settings_politics_key"
+            android:title="@string/settings_politics_label"
+            android:defaultValue="@string/settings_politics_default"/>
+
+        <CheckBoxPreference
+            android:key="@string/settings_opinion_key"
+            android:title="@string/settings_opinion_label"
+            android:defaultValue="@string/settings_opinion_default"/>
+
+        <CheckBoxPreference
+            android:key="@string/settings_society_key"
+            android:title="@string/settings_society_label"
+            android:defaultValue="@string/settings_society_default"/>
+
+        <CheckBoxPreference
+            android:key="@string/settings_artdesign_key"
+            android:title="@string/settings_artdesign_label"
+            android:defaultValue="@string/settings_artdesign_default"/>
+
+        <CheckBoxPreference
+            android:key="@string/settings_business_key"
+            android:title="@string/settings_business_label"
+            android:defaultValue="@string/settings_business_default"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

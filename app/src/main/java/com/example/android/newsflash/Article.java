@@ -11,6 +11,9 @@ public class Article {
     // article section
     private String mArticleSection;
 
+    // article section id
+    private String mArticleSectionID;
+
     // article url
     private String mArticleURL;
 
@@ -23,14 +26,16 @@ public class Article {
      * @param articleTitle is the article title
      * @param articleDate is the date of publication
      * @param articleSection is the section
+     * @param articleSectionID is the ID of the section
      * @param articleURL is the url to view article online
      * @param articleAuthor is the author
      */
-    public Article (String articleTitle, String articleDate, String articleSection,
+    public Article (String articleTitle, String articleDate, String articleSection, String articleSectionID,
                     String articleURL, String articleAuthor) {
         mArticleTitle = articleTitle;
         mArticleDate = articleDate;
         mArticleSection = articleSection;
+        mArticleSectionID = articleSectionID;
         mArticleURL = articleURL;
         mArticleAuthor = articleAuthor;
     }
@@ -48,6 +53,11 @@ public class Article {
     // get the section of the article
     public String getArticleSection() {
         return mArticleSection;
+    }
+
+    // get the ID of the section
+    public String getArticleSectionID() {
+        return  mArticleSectionID;
     }
 
     // get article url

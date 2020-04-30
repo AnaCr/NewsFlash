@@ -9,6 +9,41 @@
     <string name="date">date</string>
     <string name="author">Author</string>
 
+    <!-- Settings Strings -->
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">NewsFlash Settings</string>
+
+    <!-- Preference Labels -->
+    <string name="settings_interests_label">Interests</string>
+
+    <string name="settings_all_label">All</string>
+    <string name="settings_all_key">all</string>
+    <string name="settings_all_default">true</string>
+
+    <string name="settings_business_label">Business</string>
+    <string name="settings_business_key">Business</string>
+    <string name="settings_business_default">false</string>
+
+    <string name="settings_environment_label">Environment</string>
+    <string name="settings_environment_key">Environment</string>
+    <string name="settings_environment_default">false</string>
+
+    <string name="settings_politics_label">Politics</string>
+    <string name="settings_politics_key">Politics</string>
+    <string name="settings_politics_default">false</string>
+
+    <string name="settings_opinion_label">Opinion</string>
+    <string name="settings_opinion_key">Opinion</string>
+    <string name="settings_opinion_default">false</string>
+
+    <string name="settings_society_label">Society</string>
+    <string name="settings_society_key">Society</string>
+    <string name="settings_society_default">false</string>
+
+    <string name="settings_artdesign_label">Art &amp; Design</string>
+    <string name="settings_artdesign_key">Art and design</string>
+    <string name="settings_artdesign_default">false</string>
+
     <!-- Empty State Text -->
     <string name="noArticles">No Articles to Display.</string>
 

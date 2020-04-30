@@ -1,6 +1,7 @@
 package com.example.android.newsflash;
 
 import android.app.Activity;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         super(context, 0, Articles);
     }
 
+    @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
